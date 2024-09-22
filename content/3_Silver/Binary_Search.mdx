@@ -296,9 +296,9 @@ def last_true(lo: int, hi: int, f: Callable[[int], bool]) -> int:
 #### Implementation 3 (C++20)
 In C++20 and above we can use the ranges and views libraries to perform binary search. Unfortunately, USACO doesn't offer C++20 but it is still available on other online judges like Codeforces.
 
-For an interval $[\text{lo}, \text{hi})$, we can binary search for the first value that will have $f$ return $\text{false}$ and then subtract $1$ to get last_true.
+For a half open interval `\text{lo}, \text{hi}`, we can binary search for the first value that will have `f` return `false` and then subtract 1 to get `last_true`.
 
-This can be easily modified to first_true by inverting the return value of $f$.
+This can be easily modified to `first_true` by inverting the return value of `f`.
 
 <LanguageSection>
 <CPPSection>
