@@ -302,12 +302,14 @@ This can be easily modified to first_true by inverting the return value of $f$.
 
 <LanguageSection>
 <CPPSection>
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
 int last_true(int lo, int hi, function<bool(int)> f) {
 	return *ranges::partition_point(views::iota(lo, hi), f) - 1;
 }
+```
 </CPPSection>
 </LanguageSection>
 
