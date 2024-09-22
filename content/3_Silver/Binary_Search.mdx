@@ -293,6 +293,25 @@ def last_true(lo: int, hi: int, f: Callable[[int], bool]) -> int:
 </PySection>
 </LanguageSection>
 
+#### Implementation 3 (C++20)
+In C++20 and above we can use the ranges and views libraries to perform binary search. Unfortunately, USACO doesn't offer C++20 but it is still available on other online judges like Codeforces.
+
+For an interval $[lo, hi)$, we can binary search for the first value that will have $f$ return $\text{false}$ and then subtract $1$ to get $\text{last\_true}$.
+
+This can be easily modified to $text{first\_true}$ by inverting the return value of $f$.
+
+<LanguageSection>
+<CPPSection>
+#include <bits/stdc++.h>
+using namespace std;
+
+int last_true(int lo, int hi, function<bool(int)> f) {
+	return *ranges::partition_point(views::iota(lo, hi), f) - 1;
+}
+</CPPSection>
+</LanguageSection>
+
+
 ### Finding The Minimum `x` Such That `f(x) = true`
 
 We want to construct a function `firstTrue` such that `firstTrue(lo, hi, f)`
